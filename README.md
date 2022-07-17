@@ -6,14 +6,15 @@
 2. Zen of Python
 3. Python Programming Language
 4. Peps
-5. Style Guide
-6. Structural Naming Conventions
+5. Type Hints
+6. Style Guide
+7. Structural Naming Conventions
     1. Project Name
     2. Packages
     3. Modules
     4. Main Module
     5. Test Module
-7. Code Naming Conventions
+8. Code Naming Conventions
     1. Variables
     2. Constants
     3. Functions
@@ -26,7 +27,7 @@
     10. Errors
     11. Error Alias
     12. Reserved Words
-8. Access Modifiers
+9. Access Modifiers
     1. Module Variables
     2. Module Constants
     3. Module Functions
@@ -35,8 +36,17 @@
     6. Class Constants
     7. Class Attributes
     8. Class Methods
-9. Strings
-10. 
+10. Strings
+11. Importation
+    1. Import Location
+    2. Multiple Module Imports
+    3. Multiple Module Resource Imports
+    4. Import Alias
+    5. Order
+12. Functions and Methods
+    1. Parameters
+    2. Arguments
+    3. Function / Method Calls
 
 ## Introduction
 
@@ -83,6 +93,10 @@ For typehints, this style follow the same of [PEP484](https://peps.python.org/pe
 For docstrings, I used some characteristics of [Google Style Guide](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings) and [PEP257](https://peps.python.org/pep-0257/). After comparing some ways to create docstrings using these conventions, I could see improvements and other modifications that could facilitate the documentation of the code. Because of that, I decided to change some of the conventions thinking more in code standardization. Don't forget the zen principle: _Simple is better than complex._
 
 Document the code is extremely important, for the developers and for who will maintain this code in the future. But, we know that it is not everyone that like or can prioritize it, so I focused in the easiest way to avoid giving more work for do it, without spending a lot of time.
+
+## Type Hints
+
+All of examples count on type hints. However, you can use this style guide without using type hints, but it is not recommended. Types are always the best option to document the code. _Explicit is better than implicit._. Check [PEP484](https://peps.python.org/pep-0484/) For more details.
 
 ## Style Guide
 
@@ -200,11 +214,15 @@ The naming convention follows the same of PEP8. Read this section to check more 
 ```python
 # Use a good representation name
 # Use underscore to separate
+# Use the type hint for variables
 # Do not use camel case
 # Do not use special symbols
 # Do not use capital letters
 
 # Do
+person_name: str = 'John Due'
+
+# Don't
 person_name = 'John Due'
 
 # Don't
@@ -220,9 +238,13 @@ personname = 'John Due'
 # Use a good representation name
 # Use underscore to separate
 # Use all letters capitalized
+# Use type hints
 # Do not use special symbols
 
 # Do
+PI: float = 3.14
+
+# Don't
 PI = 3.14
 
 # Don't
@@ -234,16 +256,21 @@ pi = 3.14
 ```python
 # Use a good representation name
 # Use underscore to separate
+# Use type hints
 # Do not use camel case
 # Do not use special symbols
 # Do not use capital letters
 
 # Do
+def sum_numbers(x: int, y: int) -> int:
+    return x + y
+
+# Don't
 def sum_numbers(x, y):
     return x + y
 
 # Don't
-def sumNumbers(x, y):
+def sumNumbers(x: int, y: int) -> int:
     return x + y
 ```
 
@@ -252,16 +279,17 @@ def sumNumbers(x, y):
 ```python
 # Use a good representation name
 # Use underscore to separate
+# Use type hints
 # Do not use camel case
 # Do not use special symbols
 # Do not use capital letters
 
 # Do
-def multiply(number_1, number_2):
+def multiply(number_1: int, number_2: int) -> int:
     return number_1 * number_2
 
 # Don't
-def multiply(number1, n):
+def multiply(number1: int, n: int) -> int:
     return number1 * n
 ```
 
@@ -269,10 +297,10 @@ def multiply(number1, n):
 
 ```python
 # Use a good representation name
-# Do not use underscore to separate
 # Use camel case
-# Do not use special symbols
 # Capitalize all letters of an abbreviation
+# Do not use underscore to separate
+# Do not use special symbols
 # Do not use letters to represent the type, like "I" for interface
 
 # Do
@@ -297,6 +325,7 @@ class ABCClientServer(ABC):
 ```python
 # Use a good representation name
 # Use underscore to separate
+# Use type hints
 # Do not use camel case
 # Do not use special symbols
 # Instance methods should have their first parameter named 'self'.
@@ -306,15 +335,15 @@ class ABCClientServer(ABC):
 
 # Do
 class DataProcessor:
-    def process_data(self):
+    def process_data(self) -> None:
         pass
 
     @classmethod
-    def create(cls):
+    def create(cls) -> 'DataProcessor':
         pass
 
     @staticmethod
-    def version():
+    def version() -> float:
         pass
 ```
 
@@ -324,18 +353,19 @@ class DataProcessor:
 # Use a good representation name
 # Use dunder "__" as prefix and suffix
 # Use underscore to separate
+# Use type hints
 # Do not use camel case
 # Do not use special symbols
 # Do not use capital letters
 
 # Do
 class DataProcessor:
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
 # Don't
 class DataProcessor:
-    def init(self):
+    def init(self) -> None:
         pass
 ```
 
@@ -345,6 +375,7 @@ class DataProcessor:
 # Use "test_" as prefix
 # Use a good representation name
 # Use underscore to separate
+# Use type hints
 # Do not use camel case
 # Do not use special symbols
 # Must have their first parameter named 'self'.
@@ -352,12 +383,12 @@ class DataProcessor:
 
 # Do
 class ListTest(unittest.TestCase):
-    def test_append(self):
+    def test_append(self) -> None:
         pass
 
 # Don't
 class ListTest(unittest.TestCase):
-    def append(self):
+    def append(self) -> None:
         pass
 ```
 
@@ -442,17 +473,17 @@ except ValueError as error:
 # When the name is already used, add an underscore as suffix
 
 # Do
-from_ = 'Hello'
+from_: str = 'Hello'
 
 # Do
-def input_(message):
+def input_(message: str) -> Any:
     pass
 
 # Don't
-any = True
+any: bool = True
 
 # Don't
-def sum(x, y):
+def sum(x: int, y: int) -> int:
     return x + y
 ```
 
@@ -469,26 +500,26 @@ Access Modifiers are the way to determinate the accessibility of the resources i
 ### Module Variables
 
 ```python
-person_name = 'John Due'  # Public
-__person_name = 'John Due'  # Private
+person_name: str = 'John Due'  # Public
+__person_name: str = 'John Due'  # Private
 ```
 
 ### Module Constants
 
 ```python
-PI = 3.14  # Public
-__PI = 3.14  # Private
+PI: float = 3.14  # Public
+__PI: float = 3.14  # Private
 ```
 
 ### Module Functions
 
 ```python
 # Public
-def calc(x, y):  
+def calc(x: int, y: int) -> int:  
     return x + y
 
 # Private
-def __calc(x, y):
+def __calc(x: int, y: int) -> int:
     return x + y
 ```
 
@@ -508,18 +539,18 @@ class __Person:
 
 ```python
 class Person:
-    person_name = 'John Due'  # Public
-    _person_name = 'John Due'  # Protected
-    __person_name = 'John Due'  # Private
+    person_name: str = 'John Due'  # Public
+    _person_name: str = 'John Due'  # Protected
+    __person_name: str = 'John Due'  # Private
 ```
 
 ### Class Constants
 
 ```python
 class Math:
-    PI = 3.14  # Public
-    _PI = 3.14  # Protected
-    __PI = 3.14  # Private
+    PI: float = 3.14  # Public
+    _PI: float = 3.14  # Protected
+    __PI: float = 3.14  # Private
 ```
 
 ### Class Attributes
@@ -527,9 +558,9 @@ class Math:
 ```python
 class Person:
     def __init__(self):
-        self.name = 'John Due' # Public
-        self._name = 'John Due' # Protected
-        self.__name = 'John Due' # Private
+        self.name: str = 'John Due' # Public
+        self._name: str = 'John Due' # Protected
+        self.__name: str = 'John Due' # Private
 ```
 
 ### Class Methods
@@ -537,15 +568,15 @@ class Person:
 ```python
 class Person:
     # Public
-    def talk():
+    def talk() -> None:
         pass
 
     # Protected
-    def _talk():
+    def _talk() -> None:
         pass
 
     # Private
-    def __talk():
+    def __talk() -> None:
         pass
 ```
 
@@ -555,18 +586,18 @@ class Person:
 # Always use single-quote for strings
 
 # Do
-name = 'John Due'
+name: str = 'John Due'
 
 # Don't
-name = "John Due"
+name: str = "John Due"
 ```
 
 ## Importation
 
-### Location
+### Import Location
 
 ```python
-# Always import resources at the top of the file, or after the module docstring
+# Always import resources at the top of the file, after the module docstring
 
 # Do
 import abc
@@ -655,15 +686,95 @@ import sys
 from math import pi
 from typing import (
     Union,
-    Final,
+    TYPE_CHECKING as TYPE_CHECK,
 )
 
 # Don't
 import sys
 from typing import (
     Union,
-    Final,
+    TYPE_CHECKING as TYPE_CHECK,
 )
 import abc
 from math import pi
+```
+
+## Functions and Methods
+
+### Parameters
+
+```python
+# When some function exceeds the line length, use break-line
+# Adjust the next line params to the same position of first line params
+# Never keep the parameter with the type hint in other line 
+# When only the return type hint exceeds the line length, break only the return type hint with the parenthesis
+
+# Do
+def calculate_numbers(number_1: float, number_2: float, number_3: float,                
+                      number_6: float) -> float:
+    pass
+
+# Do
+def calculate_numbers(number_1: float, number_2: float, number_3: float                
+                      ) -> float:
+    pass
+
+# Don't
+def calculate_numbers(number_1: float, number_2: float, number_3: float,                
+    number_6: float) -> float:
+    pass
+
+# Don't
+def calculate_numbers(number_1: float, number_2: float, number_3: \
+                      float, number_6: float) -> float:
+    pass
+
+# Don't
+def calculate_numbers(
+    number_1: float, 
+    number_2: float, 
+    number_3: float,                
+    ) -> float:
+    pass
+```
+
+### Arguments
+
+```python
+# When some function call exceeds the line length, use break-line
+# Adjust the next line args to the same position of first line args
+
+# Do
+function('argument1', 'argument2', 'argument3', 'argument4', 'argument5',
+         'argument6', 'argument7')
+
+# Don't
+function('argument1', 'argument2', 'argument3', 'argument4', 'argument5',
+    'argument6', 'argument7')
+
+# Don't
+function(
+    'argument1', 
+    'argument2', 
+    'argument3',
+)
+```
+
+### Function / Method Calls
+
+```python
+# When some function call exceeds the line length, use break-line
+# Put arguments in the next line when function exceed the line length
+
+# Do
+big_function_name_that_exceed_the_line_length_and_is_good_documented(
+    'argument1', 'argument2', 'argument3',
+)
+
+# Don't
+big_function_name_that_exceed_the_line_length_and_is_good_documented(
+    'argument1', 
+    'argument2', 
+    'argument3',
+)
 ```
