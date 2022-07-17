@@ -9,9 +9,9 @@
 5. Type Hints
 6. Style Guide
 7. Structural Naming Conventions
-    1. Project Name
-    2. Packages
-    3. Modules
+    1. [Project Name](#project-name)
+    2. [Packages](#packages)
+    3. [Modules](#modules)
     4. Main Module
     5. Test Module
 8. Code Naming Conventions
@@ -396,7 +396,7 @@ class ListTest(unittest.TestCase):
 
 ```python
 # Use "_" as name
-# If there is other unused variable named "_", add other underscore "__"
+# If there is other unused variable named "_", append other underscore "__"
 
 # Do
 for _, value in object_map.items():
@@ -777,4 +777,42 @@ big_function_name_that_exceed_the_line_length_and_is_good_documented(
     'argument2', 
     'argument3',
 )
+```
+
+### Static Methods
+
+```python
+# Use the @staticmethod decorator
+
+# Do
+class Person:
+    @staticmethod
+    def version(type_: int) -> int:
+        pass
+```
+
+### Class Methods
+
+```python
+# Always use "cls" as the first argument
+# Use the @classmethod decorator
+# Don't need to set type hint for "cls" variable
+
+# Do
+class Person:
+    @classmethod
+    def create(cls, name: str) -> 'Person':
+        pass
+```
+
+### Instance Methods
+
+```python
+# Always use "self" as the first argument
+# Don't need to set type hint for "self" variable
+
+# Do
+class Person:
+    def talk(self, message: str) -> None:
+        pass
 ```
