@@ -14,6 +14,12 @@
     3. [Modules](#modules)
     4. Main Module
     5. Test Module
+8. Format Conventions
+    1. Line Length (79)
+    2. Blank Lines
+    3. Indentation
+    4. Backslash
+    5. End of File (EOF)
 8. Code Naming Conventions
     1. Variables
     2. Constants
@@ -88,7 +94,7 @@ Python is a interpreted programming language that use the tabs or spaces as code
 
 In this document I used everything of [PEP8](https://peps.python.org/pep-0008/), and more other styles that there aren't in it. PEP8 is the most known code style for python programmers, so, using this as the base for this style guide can guarantee that everyone can be adapted very well.
 
-For typehints, this style follow the same of [PEP484](https://peps.python.org/pep-0484/).
+For typehints, this style follow the same of [PEP484](https://peps.python.org/pep-0484/) and [PEP526](https://peps.python.org/pep-0526/).
 
 For docstrings, I used some characteristics of [Google Style Guide](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings) and [PEP257](https://peps.python.org/pep-0257/). After comparing some ways to create docstrings using these conventions, I could see improvements and other modifications that could facilitate the documentation of the code. Because of that, I decided to change some of the conventions thinking more in code standardization. Don't forget the zen principle: _Simple is better than complex._
 
@@ -203,6 +209,129 @@ test.py
 
 # Don't
 testing.py
+```
+
+## Format Conventions
+
+### Line Length (79)
+
+```python
+# Use 79 columns as line length
+# Never exceed this length
+# Use backslash to wrap the line
+# When line wrap, use the same column after declaration for the second line
+
+# Do
+text: str = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' \
+            'Aliquam a elit nisl.'
+
+# Don't
+text: str = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a elit nisl.'
+```
+
+### Blank Lines
+
+```python
+# Use two blank lines to separate imports, functions and classes
+# For inside a class, use only one line to separate the methods
+
+# Do
+import abc
+
+
+class Person:
+    pass
+
+
+def main():
+    pass
+
+# Do
+class Person:
+
+    def __init__(self) -> None:
+        pass
+
+    def talk(self, message: str) -> None:
+        pass
+
+# Don't
+import abc
+class Person:
+    pass
+def main():
+    pass
+
+# Don't
+class Person:
+
+
+    def __init__(self) -> None:
+        pass
+
+
+    def talk(self, message: str) -> None:
+        pass
+```
+
+### Indentation
+
+```python
+# Always use spaces for indentation
+# Always use 4 (four) spaces to indent the code
+
+# Do
+if True:
+    pass
+
+# Don't
+if True:
+ pass
+```
+
+### Backslash
+
+```python
+# Use backslash for value data
+# Avoid the usage of backslash for other resources like functions params, lists, etc
+# Do not use backslash to separate strings inside a dict
+
+# Do
+def calculate_numbers(number_1: int, number_2: int, number_3: int,
+                      number_4: int) -> int:
+    pass
+
+# Do
+messages = {
+    'lorem': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+             'Aliquam a elit nisl.'
+}
+
+# Don't
+def calculate_numbers(number_1: int, number_2: int, number_3: int, \
+                      number_4: int) -> int:
+    pass
+
+# Don't
+messages = {
+    'lorem': 'Lorem ipsum dolor sit amet, consectetur adipiscing ' \
+             'elit. Aliquam a elit nisl.'
+}
+```
+
+### End of File
+
+```python
+# Always terminate a python file with a blank line
+```
+
+```python
+# Do
+
+```
+
+```python
+# Don't
 ```
 
 ## Code Naming Conventions
