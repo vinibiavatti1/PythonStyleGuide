@@ -23,7 +23,7 @@ Welcome to the Python Style Guide. Follow this document to improve and learn som
     4. [Spaces](#spaces)
     5. [Backslash](#backslash)
     6. [End of File EOF](#end-of-file-eof)
-8. [Code Naming Conventions](#code-naming-convetions)
+8. [Code Naming Conventions](#code-naming-conventions)
     1. [Variables](#variables)
     2. [Constants](#constants)
     3. [Functions](#functions)
