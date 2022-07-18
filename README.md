@@ -18,8 +18,9 @@
     1. Line Length (79)
     2. Blank Lines
     3. Indentation
-    4. Backslash
-    5. End of File (EOF)
+    4. Spaces
+    5. Backslash
+    6. End of File (EOF)
 8. Code Naming Conventions
     1. Variables
     2. Constants
@@ -53,6 +54,14 @@
     1. Parameters
     2. Arguments
     3. Function / Method Calls
+    4. Static Methods
+    5. Class Methods
+    6. Instance Methods
+13. Documentation
+    1. Inline Comments
+    2. Multiline Comments
+    3. Section Comments
+    4. Docstrings
 
 ## Introduction
 
@@ -98,7 +107,7 @@ For typehints, this style follow the same of [PEP484](https://peps.python.org/pe
 
 For docstrings, I used some characteristics of [Google Style Guide](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings) and [PEP257](https://peps.python.org/pep-0257/). After comparing some ways to create docstrings using these conventions, I could see improvements and other modifications that could facilitate the documentation of the code. Because of that, I decided to change some of the conventions thinking more in code standardization. Don't forget the zen principle: _Simple is better than complex._
 
-Document the code is extremely important, for the developers and for who will maintain this code in the future. But, we know that it is not everyone that like or can prioritize it, so I focused in the easiest way to avoid giving more work for do it, without spending a lot of time.
+Document the code is extremely important, for the developers and for who will maintain this code in the future. But, we know that it is not everyone that like or can prioritize it, so I focused in the easiest way to avoid giving more work for do it or make it become an _overkill_.
 
 ## Type Hints
 
@@ -112,26 +121,26 @@ If you have some suggestion/question, be free to open an issue to this repositor
 
 ## Structural Naming Conventions
 
-TODO description
+Structural name conventions are rules for the project structure, like name of modules, packages, and the project name.
 
 ### Project Name
 
 > Project root folder
 
+* Use a good representation name
+* Use underscore to separate
+* Do not use camel case
+* Do not use special symbols
+* Do not use capital letters
+
+**✅ Do**
 ```python
-# Use a good representation name
-# Use underscore to separate
-# Do not use camel case
-# Do not use special symbols
-# Do not use capital letters
-
-# Do
 my_project
+```
 
-# Don't
+**❌ Don't**
+```python
 myproject
-
-# Don't
 MyProject
 ```
 
@@ -139,20 +148,20 @@ MyProject
 
 > Folders with `__init__.py` file.
 
+* Use a good representation name
+* Use underscore to separate
+* Do not use camel case
+* Do not use special symbols
+* Do not use capital letters
+
+**✅ Do**
 ```python
-# Use a good representation name
-# Use underscore to separate
-# Do not use camel case
-# Do not use special symbols
-# Do not use capital letters
-
-# Do
 my_package
+```
 
-# Don't
+**❌ Don't**
+```python
 mypackage
-
-# Don't
 MyPackage
 ```
 
@@ -160,23 +169,21 @@ MyPackage
 
 > Files with `.py` extension.
 
+* Use a good representation name
+* Use underscore to separate
+* Do not use camel case
+* Do not use special symbols
+* Do not use capital letters
+
+**✅ Do**
 ```python
-# Use a good representation name
-# Use underscore to separate
-# Do not use camel case
-# Do not use special symbols
-# Do not use capital letters
-
-# Do
 my_module.py
-
-# Do
 abc_.py
+```
 
-# Don't
+**❌ Don't**
+```python
 mymodule.py
-
-# Don't
 MyModule.py
 ```
 
@@ -184,16 +191,16 @@ MyModule.py
 
 > Application entry-point file
 
+* Use the "main.py" for the main file
+
+**✅ Do**
 ```python
-# Use the "main.py" for the main file
-
-# Do
 main.py
+```
 
-# Don't
+**❌ Don't**
+```python
 app.py
-
-# Don't
 init.py
 ```
 
@@ -201,118 +208,173 @@ init.py
 
 > Test entry-point file
 
-```python
+
 # Use the "" name for the main test file
 
-# Do
+**✅ Do**
+```python
 test.py
+```
 
-# Don't
+**❌ Don't**
+```python
 testing.py
 ```
 
 ## Format Conventions
 
+For format conventions we see some generic conventions that can be applied for any part of the code. This section counts on the line length rule, spaces, lines, and other formats.
+
+As defined in PEP8, we use 79 characters as the limit for the code lines. Why? Because it facilitate for the developers to read the code. In the first sight it looks strange, but after practicing this convention little by little you will see that the code will look be much better.
+
 ### Line Length (79)
 
-```python
-# Use 79 columns as line length
-# Never exceed this length
-# Use backslash to wrap the line
-# When line wrap, use the same column after declaration for the second line
+* Use 79 columns as line length
+* Never exceed this length
+* Use backslash to wrap the line
+* When line wrap, use the same column after declaration for the second line
 
-# Do
+**✅ Do**
+```python
 text: str = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' \
             'Aliquam a elit nisl.'
+```
 
-# Don't
+**❌ Don't**
+```python
 text: str = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a elit nisl.'
 ```
 
 ### Blank Lines
 
+* Use two blank lines to separate imports, functions and classes
+* For inside a class, use only one line to separate the methods
+* Avoid using unnecessary blank lines 
+
+**✅ Do**
 ```python
-# Use two blank lines to separate imports, functions and classes
-# For inside a class, use only one line to separate the methods
-
-# Do
 import abc
 
 
 class Person:
-    pass
+    ...
 
 
 def main():
-    pass
+    ...
 
-# Do
+
 class Person:
 
     def __init__(self) -> None:
-        pass
+        ...
 
     def talk(self, message: str) -> None:
-        pass
+        ...
+```
 
-# Don't
+**❌ Don't**
+```python
 import abc
 class Person:
-    pass
+    ...
 def main():
-    pass
+    ...
 
-# Don't
 class Person:
 
 
     def __init__(self) -> None:
-        pass
+        ...
 
 
     def talk(self, message: str) -> None:
-        pass
+        ...
 ```
 
 ### Indentation
 
-```python
-# Always use spaces for indentation
-# Always use 4 (four) spaces to indent the code
+* Always use spaces for indentation
+* Always use 4 (four) spaces to indent the code
 
-# Do
+**✅ Do**
+```python
+if True:
+    pass  # 4 spaces (right)
+```
+
+**❌ Don't**
+```python
+if True:
+ pass  # 1 space (wrong)
+```
+
+
+### Inline Expressions
+
+* Never use inline expressions for conditions and loops
+
+**✅ Do**
+```python
 if True:
     pass
 
-# Don't
-if True:
- pass
+for i in range(10):
+    pass
+```
+
+**❌ Don't**
+```python
+if True: pass
+
+for i in range(10): pass
+```
+
+### Spaces
+
+* Do not use unnecessary spaces (Except for inline comments)
+* Do not align the content vertically
+
+**✅ Do**
+```python
+values = [1, 2, 3, 4]
+
+name = 'John'
+surname = 'Due'
+```
+
+**❌ Don't**
+```python
+values = [ 1, 2, 3, 4 ]
+
+name    = 'John'
+surname = 'Due'
 ```
 
 ### Backslash
 
-```python
-# Use backslash for value data
-# Avoid the usage of backslash for other resources like functions params, lists, etc
-# Do not use backslash to separate strings inside a dict
+* Use backslash for value data
+* Avoid the usage of backslash for other resources like functions params, lists, etc
+* Do not use backslash to separate strings inside a dict
 
-# Do
+**✅ Do**
+```python
 def calculate_numbers(number_1: int, number_2: int, number_3: int,
                       number_4: int) -> int:
-    pass
+    ...
 
-# Do
 messages = {
     'lorem': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
              'Aliquam a elit nisl.'
 }
+```
 
-# Don't
+**❌ Don't**
+```python
 def calculate_numbers(number_1: int, number_2: int, number_3: int, \
                       number_4: int) -> int:
-    pass
+    ...
 
-# Don't
 messages = {
     'lorem': 'Lorem ipsum dolor sit amet, consectetur adipiscing ' \
              'elit. Aliquam a elit nisl.'
@@ -321,17 +383,17 @@ messages = {
 
 ### End of File
 
+* Always terminate a python file with a blank line
+
+**✅ Do**
 ```python
-# Always terminate a python file with a blank line
+exit()
+
 ```
 
+**❌ Don't**
 ```python
-# Do
-
-```
-
-```python
-# Don't
+exit()
 ```
 
 ## Code Naming Conventions
@@ -340,285 +402,294 @@ The naming convention follows the same of PEP8. Read this section to check more 
 
 ### Variables
 
+* Use a good representation name
+* Use underscore to separate
+* Use the type hint for variables
+* Do not use camel case
+* Do not use special symbols
+* Do not use capital letters
+
+**✅ Do**
 ```python
-# Use a good representation name
-# Use underscore to separate
-# Use the type hint for variables
-# Do not use camel case
-# Do not use special symbols
-# Do not use capital letters
-
-# Do
 person_name: str = 'John Due'
+```
 
-# Don't
+**❌ Don't**
+```python
 person_name = 'John Due'
-
-# Don't
 personName = 'John Due'
-
-# Don't
 personname = 'John Due'
 ```
 
 ### Constants
 
+* Use a good representation name
+* Use underscore to separate
+* Use all letters capitalized
+* Use type hints
+* Do not use special symbols
+
+**✅ Do**
 ```python
-# Use a good representation name
-# Use underscore to separate
-# Use all letters capitalized
-# Use type hints
-# Do not use special symbols
-
-# Do
 PI: float = 3.14
+```
 
-# Don't
+**❌ Don't**
+```python
 PI = 3.14
-
-# Don't
 pi = 3.14 
 ```
 
 ### Functions
 
+* Use a good representation name
+* Use underscore to separate
+* Use type hints
+* Do not use camel case
+* Do not use special symbols
+* Do not use capital letters
+
+**✅ Do**
 ```python
-# Use a good representation name
-# Use underscore to separate
-# Use type hints
-# Do not use camel case
-# Do not use special symbols
-# Do not use capital letters
-
-# Do
 def sum_numbers(x: int, y: int) -> int:
-    return x + y
+    ...
+```
 
-# Don't
+**❌ Don't**
+```python
 def sum_numbers(x, y):
-    return x + y
+    ...
 
-# Don't
 def sumNumbers(x: int, y: int) -> int:
-    return x + y
+    ...
 ```
 
 ### Parameters
 
+* Use a good representation name
+* Use underscore to separate
+* Use type hints
+* Do not use camel case
+* Do not use special symbols
+* Do not use capital letters
+
+**✅ Do**
 ```python
-# Use a good representation name
-# Use underscore to separate
-# Use type hints
-# Do not use camel case
-# Do not use special symbols
-# Do not use capital letters
-
-# Do
 def multiply(number_1: int, number_2: int) -> int:
-    return number_1 * number_2
+    ...
+```
 
-# Don't
+**❌ Don't**
+```python
 def multiply(number1: int, n: int) -> int:
-    return number1 * n
+    ...
 ```
 
 ### Classes
 
+* Use a good representation name
+* Use camel case
+* Capitalize all letters of an abbreviation
+* Do not use underscore to separate
+* Do not use special symbols
+* Do not use letters to represent the type, like "I" for interface
+
+**✅ Do**
 ```python
-# Use a good representation name
-# Use camel case
-# Capitalize all letters of an abbreviation
-# Do not use underscore to separate
-# Do not use special symbols
-# Do not use letters to represent the type, like "I" for interface
-
-# Do
 class HTTPServer:
-    pass
+    ...
+```
 
-# Don't
+**❌ Don't**
+```python
 class HttpServer:
-    pass
+    ...
 
-# Don't
 class IClientServer(ABC):
-    pass
+    ...
 
-# Don't
 class ABCClientServer(ABC):
-    pass
+    ...
 ```
 
 ### Methods
 
-```python
-# Use a good representation name
-# Use underscore to separate
-# Use type hints
-# Do not use camel case
-# Do not use special symbols
-# Instance methods should have their first parameter named 'self'.
-# Class methods should have their first parameter named 'cls'
-# Static methods don't need to have a default first parameter
-# Do not use capital letters
+* Use a good representation name
+* Use underscore to separate
+* Use type hints
+* Do not use camel case
+* Do not use special symbols
+* Instance methods should have their first parameter named 'self'.
+* Class methods should have their first parameter named 'cls'
+* Static methods don't need to have a default first parameter
+* Do not use capital letters
 
-# Do
+**✅ Do**
+```python
 class DataProcessor:
     def process_data(self) -> None:
-        pass
+        ...
 
     @classmethod
     def create(cls) -> 'DataProcessor':
-        pass
+        ...
 
     @staticmethod
     def version() -> float:
-        pass
+        ...
 ```
 
 ### Magic Methods
 
-```python
-# Use a good representation name
-# Use dunder "__" as prefix and suffix
-# Use underscore to separate
-# Use type hints
-# Do not use camel case
-# Do not use special symbols
-# Do not use capital letters
+* Use a good representation name
+* Use two underscores (aka dunder) "__" as prefix and suffix
+* Use underscore to separate
+* Use type hints
+* Do not use camel case
+* Do not use special symbols
+* Do not use capital letters
 
-# Do
+**✅ Do**
+```python
 class DataProcessor:
     def __init__(self) -> None:
-        pass
+        ...
+```
 
-# Don't
+**❌ Don't**
+```python
 class DataProcessor:
     def init(self) -> None:
-        pass
+        ...
 ```
 
 ### Test Methods (TestCase)
 
-```python
-# Use "test_" as prefix
-# Use a good representation name
-# Use underscore to separate
-# Use type hints
-# Do not use camel case
-# Do not use special symbols
-# Must have their first parameter named 'self'.
-# Do not use capital letters
+* Use "test_" as prefix
+* Use a good representation name
+* Use underscore to separate
+* Use type hints
+* Do not use camel case
+* Do not use special symbols
+* Must have their first parameter named 'self'.
+* Do not use capital letters
 
-# Do
+**✅ Do**
+```python
 class ListTest(unittest.TestCase):
     def test_append(self) -> None:
-        pass
+        ...
+```
 
-# Don't
+**❌ Don't**
+```python
 class ListTest(unittest.TestCase):
     def append(self) -> None:
-        pass
+        ...
 ```
 
 ### Unused Resources
 
+* Use "_" as name
+* If there is other unused variable named "_", append other underscore "__"
+
+**✅ Do**
 ```python
-# Use "_" as name
-# If there is other unused variable named "_", append other underscore "__"
-
-# Do
 for _, value in object_map.items():
-    pass
+    ...
 
-# Do
 for _, inner in object_map.items():
     for __, value in inner.items():
-        pass
+        ...
+```
 
-# Don't
+**❌ Don't**
+```python
 for unused, value in object_map.items():
-    pass
+    ...
 ```
 
 ### Errors
 
+* Use a good representation name
+* Do not use underscore to separate
+* Use camel case
+* Do not use special symbols
+* Do not use letters to represent the type like "E" for Error
+* Use the 'Error' suffix in the exception class name
+* Extends the Exception class or subclass
+* Never extend the "BaseException" class. Use it for an specific situation only
+
+**✅ Do**
 ```python
-# Use a good representation name
-# Do not use underscore to separate
-# Use camel case
-# Do not use special symbols
-# Do not use letters to represent the type like "E" for Error
-# Use the 'Error' suffix in the exception class name
-# Extends the Exception class or subclass
-# Never extend the "BaseException" class. Use it for an specific situation
-
-# Do
 class ValidationError(Exception):
-    pass
+    ...
+```
 
-# Don't
+**❌ Don't**
+```python
 class ValidationException(Exception):
-    pass
+    ...
 
-# Don't
 class EValidation(Exception):
-    pass
+    ...
 ```
 
 ### Error Alias
 
+* Use the 'err' name to reference the error
+* When the 'err' name is already used, add an underscore as suffix
+
+**✅ Do**
 ```python
-# Use the 'err' name to reference the error
-# When the 'err' name is already used, add an underscore as suffix
-
-# Do
 try:
-    pass
+    ...
 except ValueError as err: 
-    pass
+    ...
 
-# Do
+
 try:
-    pass
+    ...
 except ValueError as err: 
     try:
-        pass
+        ...
     except ValueError as err_: 
-        pass
+        ...
+```
 
-# Don't
+**❌ Don't**
+```python
 try:
-    pass
+    ...
 except ValueError as error: 
-    pass
+    ...
 ```
 
 ### Reserved Words
 
-```python
-# Never use a python reserved word or builtin word as name for any artifact
-# Use underline "_" as suffix
-# When the name is already used, add an underscore as suffix
+* Never replace a python reserved word or builtin word as name for any artifact
+* Use underscore "_" as suffix
+* When the name is already used, add an underscore as suffix
 
-# Do
+**✅ Do**
+```python
 from_: str = 'Hello'
 
-# Do
 def input_(message: str) -> Any:
-    pass
+    ...
+```
 
-# Don't
-any: bool = True
+**❌ Don't**
+```python
+any: bool = True  # any is a builtin function
 
-# Don't
-def sum(x: int, y: int) -> int:
-    return x + y
+def sum(x: int, y: int) -> int:  # sum is a builtin function
+    ...
 ```
 
 ## Access Modifiers
 
-Access Modifiers are the way to determinate the accessibility of the resources in a class or module. Python does't have any consistency validator to check it, only for private resources where it uses [Name Mangling](https://en.wikipedia.org/wiki/Name_mangling) to avoid direct calls. So, to ensure the comprehension of the accessibility in python, we can use some conventions. The conventions are:
+Access Modifiers are the way to determinate the accessibility of the resources in a class or module. Python does't have any consistency validator to check it, only for private resources where it uses [Name Mangling](https://en.wikipedia.org/wiki/Name_mangling) to avoid direct calls. So, to ensure the comprehension of the accessibility in Python, we can use some conventions.In general, we use underscores to define the accessibility of the resource:
 
 |Accessibility|Prefix|Example|
 |---|---|---|
@@ -628,6 +699,7 @@ Access Modifiers are the way to determinate the accessibility of the resources i
 
 ### Module Variables
 
+**✅ Do**
 ```python
 person_name: str = 'John Due'  # Public
 __person_name: str = 'John Due'  # Private
@@ -635,6 +707,7 @@ __person_name: str = 'John Due'  # Private
 
 ### Module Constants
 
+**✅ Do**
 ```python
 PI: float = 3.14  # Public
 __PI: float = 3.14  # Private
@@ -642,30 +715,33 @@ __PI: float = 3.14  # Private
 
 ### Module Functions
 
+**✅ Do**
 ```python
 # Public
 def calc(x: int, y: int) -> int:  
-    return x + y
+    ...
 
 # Private
 def __calc(x: int, y: int) -> int:
-    return x + y
+    ...
 ```
 
 ### Module Classes
 
+**✅ Do**
 ```python
 # Public
 class Person:
-    pass
+    ...
 
 # Private
 class __Person:
-    pass
+    ...
 ```
 
 ### Class Variables
 
+**✅ Do**
 ```python
 class Person:
     person_name: str = 'John Due'  # Public
@@ -675,6 +751,7 @@ class Person:
 
 ### Class Constants
 
+**✅ Do**
 ```python
 class Math:
     PI: float = 3.14  # Public
@@ -684,6 +761,7 @@ class Math:
 
 ### Class Attributes
 
+**✅ Do**
 ```python
 class Person:
     def __init__(self):
@@ -694,83 +772,82 @@ class Person:
 
 ### Class Methods
 
+**✅ Do**
 ```python
 class Person:
     # Public
     def talk() -> None:
-        pass
+        ...
 
     # Protected
     def _talk() -> None:
-        pass
+        ...
 
     # Private
     def __talk() -> None:
-        pass
+        ...
 ```
 
 ## Strings
 
+* Always use single-quote "'" for strings
+
+**✅ Do**
 ```python
-# Always use single-quote for strings
-
-# Do
 name: str = 'John Due'
+```
 
-# Don't
-name: str = "John Due"
+**❌ Don't**
+```python
+name: str = "John Due"  # Used double quotes
 ```
 
 ## Importation
 
+In this section conventions for module and package importation will be declared to facilitate the organization and the comprehension of the code.
+
 ### Import Location
 
+* Always import resources at the top of the file, after the module docstring
+
+**✅ Do**
 ```python
-# Always import resources at the top of the file, after the module docstring
-
-# Do
-import abc
-
-# Do
 """
 Module description...
 """
 import abc
+```
 
-# Don't
+**❌ Don't**
+```python
 name = 'John Due'
 import abc
 
-# Don't
 def main():
-    import abc
+    import functools
 ```
 
 ### Multiple Module Imports
 
-```python
-# When importing multiple modules, use different lines for each one
+* When importing multiple modules, use different lines for each one
 
-# Do
+**✅ Do**
+```python
 import abc
 import sys
+```
 
-# Don't
+**❌ Don't**
+```python
 import abc, sys
 ```
 
 ### Multiple Module Resource Imports
 
+* If the amount of resources pass 2 (two) imports, or exceeds the line length, use multiple line imports
+
+**✅ Do**
 ```python
-# If the amount of resources that will be imported exceed 79 characters, use multiple line import
-
-# Do
-from abc import ABC
-
-# Do
-from typing import Final, Union
-
-# Do
 from typing import (
     Iterable,
     Final,
@@ -780,36 +857,42 @@ from typing import (
     ClassVar,
     TYPE_CHECKING,
 )
+```
 
-# Don't
+**❌ Don't**
+```python
 from typing import Iterable, Final, Union, Optional, NamedTuple, ClassVar, \
     TYPE_CHECKING
 ```
 
 ### Import Alias
 
-```python
-# Try to avoid using alias since it can difficult the understanding
+* Try to avoid using alias since it can difficult the understanding of the imported resource usage
+* If it is needed, use good representation names, not acronyms 
 
-# Do
+**✅ Do**
+```python
 import sys as system
 
-# Do
 from typing import TYPE_CHECKING as TYPE_CHECK
+```
 
-# Don't
+**❌ Don't**
+```python
 from sys as s
+
+from typing import TYPE_CHECKING as TC
 ```
 
 ### Order
 
-```python
-# Imports are sorted alphabetically, and should respect the import order
-# The order is:
-#   1º Module imports
-#   2º Resource imports
+* Imports are sorted alphabetically, and should respect the import order
+* The order is:
+    * 1º Module imports
+    * 2º Resource imports
 
-# Do
+**✅ Do**
+```python
 import abc
 import sys
 from math import pi
@@ -817,8 +900,10 @@ from typing import (
     Union,
     TYPE_CHECKING as TYPE_CHECK,
 )
+```
 
-# Don't
+**❌ Don't**
+```python
 import sys
 from typing import (
     Union,
@@ -830,58 +915,60 @@ from math import pi
 
 ## Functions and Methods
 
+# TODO missing desc
+
 ### Parameters
 
-```python
-# When some function exceeds the line length, use break-line
-# Adjust the next line params to the same position of first line params
-# Never keep the parameter with the type hint in other line 
-# When only the return type hint exceeds the line length, break only the return type hint with the parenthesis
+* When some function exceeds the line length, use break-line
+* Adjust the next line params to the same position of first line params
+* Never keep the parameter with the type hint in other line 
+* When only the return type hint exceeds the line length, break only the return type hint with the parenthesis
 
-# Do
+**✅ Do**
+```python
 def calculate_numbers(number_1: float, number_2: float, number_3: float,                
                       number_6: float) -> float:
-    pass
+    ...
 
-# Do
 def calculate_numbers(number_1: float, number_2: float, number_3: float                
                       ) -> float:
-    pass
+    ...
+```
 
-# Don't
+**❌ Don't**
+```python
 def calculate_numbers(number_1: float, number_2: float, number_3: float,                
     number_6: float) -> float:
-    pass
+    ...
 
-# Don't
 def calculate_numbers(number_1: float, number_2: float, number_3: \
                       float, number_6: float) -> float:
-    pass
+    ...
 
-# Don't
 def calculate_numbers(
     number_1: float, 
     number_2: float, 
     number_3: float,                
     ) -> float:
-    pass
+    ...
 ```
 
 ### Arguments
 
-```python
-# When some function call exceeds the line length, use break-line
-# Adjust the next line args to the same position of first line args
+* When some function call exceeds the line length, use break-line
+* Adjust the next line args to the same position of first line args
 
-# Do
+**✅ Do**
+```python
 function('argument1', 'argument2', 'argument3', 'argument4', 'argument5',
          'argument6', 'argument7')
+```
 
-# Don't
+**❌ Don't**
+```python
 function('argument1', 'argument2', 'argument3', 'argument4', 'argument5',
     'argument6', 'argument7')
 
-# Don't
 function(
     'argument1', 
     'argument2', 
@@ -891,17 +978,19 @@ function(
 
 ### Function / Method Calls
 
-```python
-# When some function call exceeds the line length, use break-line
-# Put arguments in the next line when function exceed the line length
+* When some function call exceeds the line length, use break-line
+* Put arguments in the next line when function exceed the line length
 
-# Do
-big_function_name_that_exceed_the_line_length_and_is_good_documented(
+**✅ Do**
+```python
+big_function_name_that_almost_exceed_the_line_length_and_has_a_big_name(
     'argument1', 'argument2', 'argument3',
 )
+```
 
-# Don't
-big_function_name_that_exceed_the_line_length_and_is_good_documented(
+**❌ Don't**
+```python
+big_function_name_that_almost_exceed_the_line_length_and_has_a_big_name(
     'argument1', 
     'argument2', 
     'argument3',
@@ -910,38 +999,76 @@ big_function_name_that_exceed_the_line_length_and_is_good_documented(
 
 ### Static Methods
 
-```python
-# Use the @staticmethod decorator
+* Use the @staticmethod decorator
 
-# Do
+**✅ Do**
+```python
 class Person:
     @staticmethod
     def version(type_: int) -> int:
-        pass
+        ...
 ```
 
 ### Class Methods
 
-```python
-# Always use "cls" as the first argument
-# Use the @classmethod decorator
-# Don't need to set type hint for "cls" variable
+* Always use "cls" as the first argument
+* Use the @classmethod decorator
+* Do not need to set type hint for "cls" variable
 
-# Do
+**✅ Do**
+```python
 class Person:
     @classmethod
     def create(cls, name: str) -> 'Person':
-        pass
+        ...
 ```
 
 ### Instance Methods
 
-```python
-# Always use "self" as the first argument
-# Don't need to set type hint for "self" variable
+* Always use "self" as the first argument
+* Do not need to set type hint for "self" variable
 
-# Do
+**✅ Do**
+```python
 class Person:
     def talk(self, message: str) -> None:
         pass
 ```
+
+## Documentation
+
+In Python we have three types of comments that can be used into Python code: inline Comments, multiline comments and docstrings. We use these comments to document the code for more readability, or to help the developers about some complex routine. 
+
+### Inline Comments
+
+* Use one space after the "number sign"
+* After expressions, use two spaces to separate the code and the comment
+* Never exceed the 79 line length
+* If the line length will be exceeded, create other inline comment below
+* To describe a function, method, or a class, use docstrings
+
+**✅ Do**
+```python
+values = [1, 2, 3]  # Important values
+
+# Check some important thing
+if True:
+    pass
+```
+
+**❌ Don't**`
+```python
+values = [1, 2, 3] #Important values
+values = [1, 2, 3] # Important values (without 2 spaces)
+
+# Main function (use docstring in this case)
+def main():
+    ...
+```
+
+### Multiline Comments
+
+### Section Comments
+
+##**✅ Do**cstrings
+
