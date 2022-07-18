@@ -1,5 +1,7 @@
 # Python Style Guide
 
+Welcome to the Python Style Guide. Follow this document to improve and learn some good practices for Python development. Take a look at [Introduction](#introduction) to start, or check the index below.
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
