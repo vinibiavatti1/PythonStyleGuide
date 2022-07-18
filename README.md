@@ -59,9 +59,11 @@
     6. Instance Methods
 13. Documentation
     1. Inline Comments
-    2. Multiline Comments
+    2. Multiple Line Comments
     3. Section Comments
     4. Docstrings
+    5. Docstring Template
+    6. Comment VSCode Snippets
 
 ## Introduction
 
@@ -790,7 +792,7 @@ class Person:
 
 ## Strings
 
-* Always use single-quote "'" for strings
+* Always use single quotes `''` for strings
 
 **✅ Do**
 ```python
@@ -1037,11 +1039,11 @@ class Person:
 
 ## Documentation
 
-In Python we have three types of comments that can be used into Python code: inline Comments, multiline comments and docstrings. We use these comments to document the code for more readability, or to help the developers about some complex routine. 
+In Python we have three types of comments that can be used into Python code: inline Comments, multiple line comments and docstrings. We use these comments to document the code for more readability, or to help the developers about some complex routine. 
 
 ### Inline Comments
 
-* Use one space after the "number sign"
+* Use one space after the `#` (number sign)
 * After expressions, use two spaces to separate the code and the comment
 * Never exceed the 79 line length
 * If the line length will be exceeded, create other inline comment below
@@ -1066,9 +1068,225 @@ def main():
     ...
 ```
 
-### Multiline Comments
+### Multiple Line Comments
+
+* Avoid to use multiple line comments. Use multiple [inline comments](#inline-comments) if it is possible, or, use docstrings to document modules, classes, functions and methods
+
+**✅ Do**
+```python
+# Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi feugiat nisi
+# non quam facilisis vehicula. In hac habitasse platea dictumst. Cras
+# maximus dolor et nunc consectetur, sed commodo nisi blandit.
+```
+
+**❌ Don't**`
+```python
+"""
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi feugiat nisi non quam facilisis vehicula. In hac habitasse platea dictumst. Cras maximus dolor et nunc consectetur, sed commodo nisi blandit.
+"""
+```
 
 ### Section Comments
 
-##**✅ Do**cstrings
+* Use `#` (number sign) to make section comments lines
+* Use a start and an end line
+* Respect the indentation 
 
+**✅ Do**
+```python
+###############################################################################
+# Section Comment
+###############################################################################
+
+class Person:
+
+    ###########################################################################
+    # Section Comment
+    ###########################################################################
+    
+    def __init__(self):
+        ...
+```
+
+**❌ Don't**`
+```python
+# -----------------------------------------------------------------------------
+# Section Comment
+# -----------------------------------------------------------------------------
+
+"""
+Section Comment
+"""
+
+"""
+###############################################################################
+Section Comment
+###############################################################################
+"""
+
+class Person:
+
+###############################################################################
+# Section Comment
+###############################################################################
+    
+    def __init__(self):
+        ...
+```
+
+### Docstrings
+
+* Use double quote `""` for docstrings
+* Always finish the line with period `.`
+* Always break the first and the end line `"""\n<doc>\n"""`. This makes better to edit the docstring. If you want to process the docstring in your code, you can `strip()` the content to remove the break lines.
+* Try to always use docstrings to document your code for modules, functions, methods and classes
+* Use only relevant content in docstrings. If you don't need to document the parameters of a function for example, don't do it. 
+* If you use docstring for an empty class, function or method, don't use ellipses `...` or the `pass` keyword. It is not necessary
+* Do not create blank lines between the documented resource and the docstring
+
+> You can use the [docstring template](#docstring-template) to facilitate the creation of the docstring
+
+**✅ Do**
+```python
+"""
+Module description.
+"""
+
+
+def function() -> None:
+    """
+    Function description.
+    """
+
+
+class Person:
+    """
+    Class description.
+    """
+
+    def method(self) -> None:
+        """
+        Method description.
+        """
+```
+
+**❌ Don't**
+```python
+def function() -> None:
+    """Function description."""
+
+def function() -> None:
+    """Function description.
+    """
+
+def function() -> None:  # Without line period
+    """
+    Function description
+    """
+
+def function() -> None:  # Blank line between the resource and the docstring
+
+    """
+    Function description
+    """
+```
+
+### Docstring Template
+
+* Remove the content that will not be used
+* Try to always follow this template to keep the same organization
+
+`Docstring Template`
+```python
+"""
+Summary of the resource here.
+
+Attributes:
+    name: Name attribute description here
+
+Args:
+    value: Positional argument description with some information and with
+        break line for multi-line description.
+    *values: Arbitraty argument description.
+    **kwvalue: Keyword argument description.
+
+Returns:
+    Return type description.
+
+Yields:
+    Return type description used when the function is a generator.
+
+Raises:
+    IOError: Error description and some information.
+
+Examples:
+    Sum two integer or float numbers and returns the result
+    add(1, 3) -> 4
+
+See Also:
+    math.pi: Example of module constant documentation.
+
+Notes:
+    Some notes here.
+
+Authors:
+    John Due: john.due@email.com
+
+References:
+    Python website: https://www.python.org/
+
+Tests:
+    Sum two integer or float numbers and returns the result
+    >>> add(1, 3)
+    4
+"""
+```
+
+### Comment VSCode Snippets
+
+If you are using [VSCode](https://code.visualstudio.com/) as the IDE for the development, you can use some snippets to facilitate the generation of docstrings and section comments. 
+
+To create a snippet, just create a file with the name `python.code-snippets.json` into `.vscode` folder with the content below. After configure it, you can start using the snippets following table:
+
+|Snippet|Description|
+|---|---|
+|`""`|Docstring Comment|
+|`##`|Section Comment|
+|`###`|Sub Section Comment|
+
+`python.code-snippets.json`
+
+```json
+{
+    "Docstring Comment": {
+        "scope": "python",
+        "prefix": "\"\"",
+        "body": [
+            "\"\"\"",
+            "${1:comment}",
+            "\"\"\""
+        ],
+        "description": "Create a docstring comment"
+    },
+    "Section Comment": {
+        "scope": "python",
+        "prefix": "##",
+        "body": [
+            "###############################################################################",
+            "# ${1:comment}",
+            "###############################################################################"
+        ],
+        "description": "Create a top-level section comment"
+    },
+    "Sub Section Comment": {
+        "scope": "python",
+        "prefix": "###",
+        "body": [
+            "###########################################################################",
+            "# ${1:comment}",
+            "###########################################################################"
+        ],
+        "description": "Create a second-level section comment"
+    }
+}
+```
