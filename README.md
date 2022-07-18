@@ -69,7 +69,9 @@
 
 This Python style guide was made focusing in the essential to create a clean and maintainable code. I really encourage the usage of any style guide, since this guarantees that your code can be easily understood by developers. There are other styles guides made from big projects/companies, and I have to confess that some tips of this style guide was obtained from these documents, but, another tips I created by myself.
 
-Avoid seeing this material as rules for your development, but use this as a convention to standardization. If you prefer to follow your style for coding some specific situation, go ahead! But, I just ask you to check and determine if this style you choose was the best choice, or if there is some situation that it could break somewhere. 
+Avoid seeing this material as rules for your development, but use this as a convention to standardization. If you prefer to follow your style for coding some specific situation, go ahead! But, I just ask you to check and determine if this style you choose was the best choice, or if there is some situation that it could break somewhere.
+
+[Back to Top](#index)
 
 ## Zen of Python
 
@@ -97,9 +99,13 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 ```
 
+[Back to Top](#index)
+
 ## Python Programming Language
 
 Python is a interpreted programming language that use the tabs or spaces as code blocks. The correct indentation is mandatory, and see this as a good advantage, because you know that for any Python code you see, it will be formatted correctly. If you are new in Python, and never have programmed in this spectacular language, please, take a look in my [Python Guide](https://github.com/vinibiavatti1/PythonGuide), where you can find a pocket documentation with examples that you can use to learn Python easily and faster. 
+
+[Back to Top](#index)
 
 ## PEPs
 
@@ -111,9 +117,13 @@ For docstrings, I used some characteristics of [Google Style Guide](https://goog
 
 Document the code is extremely important, for the developers and for who will maintain this code in the future. But, we know that it is not everyone that like or can prioritize it, so I focused in the easiest way to avoid giving more work for do it or make it become an _overkill_.
 
+[Back to Top](#index)
+
 ## Type Hints
 
 All of examples count on type hints. However, you can use this style guide without using type hints, but it is not recommended. Types are always the best option to document the code. _Explicit is better than implicit._. Check [PEP484](https://peps.python.org/pep-0484/) For more details.
+
+[Back to Top](#index)
 
 ## Style Guide
 
@@ -121,9 +131,13 @@ This style guide is separated by sections, where each section corresponds to goo
 
 If you have some suggestion/question, be free to open an issue to this repository, and we will evaluate your orders with all of will.
 
+[Back to Top](#index)
+
 ## Structural Naming Conventions
 
 Structural name conventions are rules for the project structure, like name of modules, packages, and the project name.
+
+[Back to Top](#index)
 
 ### Project Name
 
@@ -146,6 +160,8 @@ myproject
 MyProject
 ```
 
+[Back to Top](#index)
+
 ### Packages
 
 > Folders with `__init__.py` file.
@@ -166,6 +182,8 @@ my_package
 mypackage
 MyPackage
 ```
+
+[Back to Top](#index)
 
 ### Modules
 
@@ -188,6 +206,8 @@ abc_.py
 mymodule.py
 MyModule.py
 ```
+
+[Back to Top](#index)
 
 ### Main Module
 
