@@ -193,7 +193,7 @@ MyModule.py
 
 > Application entry-point file
 
-* Use the "main.py" for the main file
+* Use the `main.py` for the main file
 
 **✅ Do**
 ```python
@@ -210,8 +210,7 @@ init.py
 
 > Test entry-point file
 
-
-# Use the "" name for the main test file
+* Use the `test.py` name for the main test file
 
 **✅ Do**
 ```python
