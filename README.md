@@ -1,6 +1,6 @@
 # Python Style Guide
 
-## Index
+## Table of Contents
 
 1. [Introduction](#introduction)
 2. [Zen of Python](#zen-of-python)
@@ -71,7 +71,7 @@ This Python style guide was made focusing in the essential to create a clean and
 
 Avoid seeing this material as rules for your development, but use this as a convention to standardization. If you prefer to follow your style for coding some specific situation, go ahead! But, I just ask you to check and determine if this style you choose was the best choice, or if there is some situation that it could break somewhere.
 
-[Back to Top](#index)
+[Back to Top](#table-of-contents)
 
 ## Zen of Python
 
@@ -136,8 +136,6 @@ If you have some suggestion/question, be free to open an issue to this repositor
 ## Structural Naming Conventions
 
 Structural name conventions are rules for the project structure, like name of modules, packages, and the project name.
-
-[Back to Top](#index)
 
 ### Project Name
 
