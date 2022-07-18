@@ -1088,7 +1088,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi feugiat nisi non 
 ### Section Comments
 
 * Use `#` (number sign) to make section comments lines
-* Use a start and an end line
+* Use the first and an end line full with `#` (number sign)
 * Respect the indentation 
 
 **✅ Do**
