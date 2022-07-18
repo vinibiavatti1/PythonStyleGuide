@@ -63,7 +63,7 @@
     3. Section Comments
     4. Docstrings
     5. Docstring Template
-    6. Comment VSCode Snippets
+    6. Comment Snippets
 
 ## Introduction
 
@@ -1091,6 +1091,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi feugiat nisi non 
 * Use the first and an end line full with `#` (number sign)
 * Respect the indentation 
 
+> HINT: Use the [Comment Snippets](#comment-snippets) to facilitate the creation of section comments
+
 **✅ Do**
 ```python
 ###############################################################################
@@ -1241,7 +1243,7 @@ Tests:
 """
 ```
 
-### Comment VSCode Snippets
+### Comment Snippets
 
 If you are using [VSCode](https://code.visualstudio.com/) as the IDE for the development, you can use some snippets to facilitate the generation of docstrings and section comments. 
 
