@@ -1203,7 +1203,7 @@ def function() -> None:  # Blank line between the resource and the docstring
 Summary of the resource here.
 
 Attributes:
-    name: Name attribute description here
+    name: Class attribute description here
 
 Args:
     value: Positional argument description with some information and with
