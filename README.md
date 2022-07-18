@@ -2,68 +2,68 @@
 
 ## Index
 
-1. Introduction
-2. Zen of Python
-3. Python Programming Language
-4. Peps
-5. Type Hints
-6. Style Guide
-7. Structural Naming Conventions
+1. [Introduction](#introduction)
+2. [Zen of Python](#zen-of-python)
+3. [Python Programming Language](#python-programming-language)
+4. [PEPs](#peps)
+5. [Type Hints](#type-hints)
+6. [Style Guide](#style-guide)
+7. [Structural Naming Conventions](#structural-naming-conventions)
     1. [Project Name](#project-name)
     2. [Packages](#packages)
     3. [Modules](#modules)
-    4. Main Module
-    5. Test Module
-8. Format Conventions
-    1. Line Length (79)
-    2. Blank Lines
-    3. Indentation
-    4. Spaces
-    5. Backslash
-    6. End of File (EOF)
-8. Code Naming Conventions
-    1. Variables
-    2. Constants
-    3. Functions
-    4. Parameters
-    5. Classes
-    6. Methods
-    7. Magic Methods
-    8. Test Methods
-    9. Unused Resources
-    10. Errors
-    11. Error Alias
-    12. Reserved Words
-9. Access Modifiers
-    1. Module Variables
-    2. Module Constants
-    3. Module Functions
-    4. Module Classes
-    5. Class Variables
-    6. Class Constants
-    7. Class Attributes
-    8. Class Methods
-10. Strings
-11. Importation
-    1. Import Location
-    2. Multiple Module Imports
-    3. Multiple Module Resource Imports
-    4. Import Alias
-    5. Order
-12. Functions and Methods
-    1. Parameters
-    2. Arguments
-    3. Function / Method Calls
-    4. Static Methods
-    5. Class Methods
-    6. Instance Methods
-13. Documentation
-    1. Inline Comments
-    2. Multiple Line Comments
-    3. Section Comments
-    4. Docstrings
-    5. Docstring Template
-    6. Comment Snippets
+    4. [Main Module](#main-module)
+    5. [Test Module](#test-module)
+8. [Format Conventions](#format-conventions)
+    1. [Line Length 79](#line-length-79)
+    2. [Blank Lines](#blank-lines)
+    3. [Indentation](#indentation)
+    4. [Spaces](#spaces)
+    5. [Backslash](#backslash)
+    6. [End of File EOF](#end-of-file-eof)
+8. [Code Naming Conventions](#code-naming-convetions)
+    1. [Variables](#variables)
+    2. [Constants](#constants)
+    3. [Functions](#functions)
+    4. [Parameters](#parameters)
+    5. [Classes](#classes)
+    6. [Methods](#methods)
+    7. [Magic Methods](#magic-methods)
+    8. [Test Methods](#test-methods)
+    9. [Unused Resources](#unused-resources)
+    10. [Errors](#errors)
+    11. [Error Alias](#error-alias)
+    12. [Reserved Words](#reserved-words)
+9. [Access Modifiers](#access-modifiers)
+    1. [Module Variables](#module-variables)
+    2. [Module Constants](#module-constants)
+    3. [Module Functions](#module-functions)
+    4. [Module Classes](#module-classes)
+    5. [Class Variables](#class-variables)
+    6. [Class Constants](#class-constants)
+    7. [Class Attributes](#class-attributes)
+    8. [Class Methods](#class-methods)
+10. [Strings](#strings)
+11. [Importation](#importation)
+    1. [Import Location](#import-location)
+    2. [Multiple Module Imports](#multiple-module-imports)
+    3. [Multiple Module Resource Imports](#multiple-module-resource-imports)
+    4. [Import Alias](#import-alias)
+    5. [Order](#order)
+12. [Functions and Methods](#function-and-methods)
+    1. [Parameters](#parameters)
+    2. [Arguments](#arguments)
+    3. [Function and Method Calls](#function-and-method-calls)
+    4. [Static Methods](#static-methods)
+    5. [Class Methods](#class-methods)
+    6. [Instance Methods](#instance-methods)
+13. [Documentation](#documentation)
+    1. [Inline Comments](#inline-comments)
+    2. [Multiple Line Comments](#multiple-line-comments)
+    3. [Section Comments](#section-comments)
+    4. [Docstrings](#docstrings)
+    5. [Docstring Template](#docstring-template)
+    6. [Comment Snippets](#comment-snippets)
 
 ## Introduction
 
@@ -228,7 +228,7 @@ For format conventions we see some generic conventions that can be applied for a
 
 As defined in PEP8, we use 79 characters as the limit for the code lines. Why? Because it facilitate for the developers to read the code. In the first sight it looks strange, but after practicing this convention little by little you will see that the code will look be much better.
 
-### Line Length (79)
+### Line Length 79
 
 * Use 79 columns as line length
 * Never exceed this length
@@ -382,7 +382,7 @@ messages = {
 }
 ```
 
-### End of File
+### End of File EOF
 
 * Always terminate a python file with a blank line
 
@@ -916,7 +916,7 @@ from math import pi
 
 ## Functions and Methods
 
-# TODO missing desc
+Some conventions will be applied for function and methods, to make some consistency for organization, line breaks and alignments.
 
 ### Parameters
 
@@ -977,7 +977,7 @@ function(
 )
 ```
 
-### Function / Method Calls
+### Function and Method Calls
 
 * When some function call exceeds the line length, use break-line
 * Put arguments in the next line when function exceed the line length
