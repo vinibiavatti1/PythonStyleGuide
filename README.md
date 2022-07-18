@@ -99,13 +99,13 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 ```
 
-[Back to Top](#index)
+[Back to Top](#table-of-contents)
 
 ## Python Programming Language
 
 Python is a interpreted programming language that use the tabs or spaces as code blocks. The correct indentation is mandatory, and see this as a good advantage, because you know that for any Python code you see, it will be formatted correctly. If you are new in Python, and never have programmed in this spectacular language, please, take a look in my [Python Guide](https://github.com/vinibiavatti1/PythonGuide), where you can find a pocket documentation with examples that you can use to learn Python easily and faster. 
 
-[Back to Top](#index)
+[Back to Top](#table-of-contents)
 
 ## PEPs
 
@@ -117,13 +117,13 @@ For docstrings, I used some characteristics of [Google Style Guide](https://goog
 
 Document the code is extremely important, for the developers and for who will maintain this code in the future. But, we know that it is not everyone that like or can prioritize it, so I focused in the easiest way to avoid giving more work for do it or make it become an _overkill_.
 
-[Back to Top](#index)
+[Back to Top](#table-of-contents)
 
 ## Type Hints
 
 All of examples count on type hints. However, you can use this style guide without using type hints, but it is not recommended. Types are always the best option to document the code. _Explicit is better than implicit._. Check [PEP484](https://peps.python.org/pep-0484/) For more details.
 
-[Back to Top](#index)
+[Back to Top](#table-of-contents)
 
 ## Style Guide
 
@@ -131,7 +131,7 @@ This style guide is separated by sections, where each section corresponds to goo
 
 If you have some suggestion/question, be free to open an issue to this repository, and we will evaluate your orders with all of will.
 
-[Back to Top](#index)
+[Back to Top](#table-of-contents)
 
 ## Structural Naming Conventions
 
@@ -158,7 +158,7 @@ myproject
 MyProject
 ```
 
-[Back to Top](#index)
+[Back to Top](#table-of-contents)
 
 ### Packages
 
@@ -181,7 +181,7 @@ mypackage
 MyPackage
 ```
 
-[Back to Top](#index)
+[Back to Top](#table-of-contents)
 
 ### Modules
 
@@ -205,7 +205,7 @@ mymodule.py
 MyModule.py
 ```
 
-[Back to Top](#index)
+[Back to Top](#table-of-contents)
 
 ### Main Module
 
@@ -224,6 +224,8 @@ app.py
 init.py
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Test Module
 
 > Test entry-point file
@@ -239,6 +241,8 @@ test.py
 ```python
 testing.py
 ```
+
+[Back to Top](#table-of-contents)
 
 ## Format Conventions
 
@@ -263,6 +267,8 @@ text: str = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' \
 ```python
 text: str = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a elit nisl.'
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Blank Lines
 
@@ -311,6 +317,8 @@ class Person:
         ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Indentation
 
 * Always use spaces for indentation
@@ -328,6 +336,7 @@ if True:
  pass  # 1 space (wrong)
 ```
 
+[Back to Top](#table-of-contents)
 
 ### Inline Expressions
 
@@ -349,6 +358,8 @@ if True: pass
 for i in range(10): pass
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Spaces
 
 * Do not use unnecessary spaces (Except for inline comments)
@@ -369,6 +380,8 @@ values = [ 1, 2, 3, 4 ]
 name    = 'John'
 surname = 'Due'
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Backslash
 
@@ -400,6 +413,8 @@ messages = {
 }
 ```
 
+[Back to Top](#table-of-contents)
+
 ### End of File EOF
 
 * Always terminate a python file with a blank line
@@ -414,6 +429,8 @@ EOF
 ```python
 exit() EOF
 ```
+
+[Back to Top](#table-of-contents)
 
 ## Code Naming Conventions
 
@@ -440,6 +457,8 @@ personName = 'John Due'
 personname = 'John Due'
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Constants
 
 * Use a good representation name
@@ -458,6 +477,8 @@ PI: float = 3.14
 PI = 3.14
 pi = 3.14 
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Functions
 
@@ -483,6 +504,8 @@ def sumNumbers(x: int, y: int) -> int:
     ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Parameters
 
 * Use a good representation name
@@ -503,6 +526,8 @@ def multiply(number_1: int, number_2: int) -> int:
 def multiply(number1: int, n: int) -> int:
     ...
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Classes
 
@@ -531,6 +556,8 @@ class ABCClientServer(ABC):
     ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Methods
 
 * Use a good representation name
@@ -558,6 +585,8 @@ class DataProcessor:
         ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Magic Methods
 
 * Use a good representation name
@@ -581,6 +610,8 @@ class DataProcessor:
     def init(self) -> None:
         ...
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Test Methods (TestCase)
 
@@ -607,6 +638,8 @@ class ListTest(unittest.TestCase):
         ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Unused Resources
 
 * Use "_" as name
@@ -627,6 +660,8 @@ for _, inner in object_map.items():
 for unused, value in object_map.items():
     ...
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Errors
 
@@ -653,6 +688,8 @@ class ValidationException(Exception):
 class EValidation(Exception):
     ...
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Error Alias
 
@@ -684,6 +721,8 @@ except ValueError as error:
     ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Reserved Words
 
 * Never replace a python reserved word or builtin word as name for any artifact
@@ -706,6 +745,8 @@ def sum(x: int, y: int) -> int:  # sum is a builtin function
     ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ## Access Modifiers
 
 Access Modifiers are the way to determinate the accessibility of the resources in a class or module. Python does't have any consistency validator to check it, only for private resources where it uses [Name Mangling](https://en.wikipedia.org/wiki/Name_mangling) to avoid direct calls. So, to ensure the comprehension of the accessibility in Python, we can use some conventions.In general, we use underscores to define the accessibility of the resource:
@@ -724,6 +765,8 @@ person_name: str = 'John Due'  # Public
 __person_name: str = 'John Due'  # Private
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Module Constants
 
 **✅ Do**
@@ -731,6 +774,8 @@ __person_name: str = 'John Due'  # Private
 PI: float = 3.14  # Public
 __PI: float = 3.14  # Private
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Module Functions
 
@@ -745,6 +790,8 @@ def __calc(x: int, y: int) -> int:
     ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Module Classes
 
 **✅ Do**
@@ -758,6 +805,8 @@ class __Person:
     ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Class Variables
 
 **✅ Do**
@@ -767,6 +816,8 @@ class Person:
     _person_name: str = 'John Due'  # Protected
     __person_name: str = 'John Due'  # Private
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Class Constants
 
@@ -778,6 +829,8 @@ class Math:
     __PI: float = 3.14  # Private
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Class Attributes
 
 **✅ Do**
@@ -788,6 +841,8 @@ class Person:
         self._name: str = 'John Due' # Protected
         self.__name: str = 'John Due' # Private
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Class Methods
 
@@ -807,6 +862,8 @@ class Person:
         ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ## Strings
 
 * Always use single quotes `''` for strings
@@ -820,6 +877,8 @@ name: str = 'John Due'
 ```python
 name: str = "John Due"  # Used double quotes
 ```
+
+[Back to Top](#table-of-contents)
 
 ## Importation
 
@@ -846,6 +905,8 @@ def main():
     import functools
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Multiple Module Imports
 
 * When importing multiple modules, use different lines for each one
@@ -860,6 +921,8 @@ import sys
 ```python
 import abc, sys
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Multiple Module Resource Imports
 
@@ -884,6 +947,8 @@ from typing import Iterable, Final, Union, Optional, NamedTuple, ClassVar, \
     TYPE_CHECKING
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Import Alias
 
 * Try to avoid using alias since it can difficult the understanding of the imported resource usage
@@ -902,6 +967,8 @@ from sys as s
 
 from typing import TYPE_CHECKING as TC
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Order
 
@@ -931,6 +998,8 @@ from typing import (
 import abc
 from math import pi
 ```
+
+[Back to Top](#table-of-contents)
 
 ## Functions and Methods
 
@@ -972,6 +1041,8 @@ def calculate_numbers(
     ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Arguments
 
 * When some function call exceeds the line length, use break-line
@@ -995,6 +1066,8 @@ function(
 )
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Function and Method Calls
 
 * When some function call exceeds the line length, use break-line
@@ -1016,6 +1089,8 @@ big_function_name_that_almost_exceed_the_line_length_and_has_a_big_name(
 )
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Static Methods
 
 * Use the @staticmethod decorator
@@ -1027,6 +1102,8 @@ class Person:
     def version(type_: int) -> int:
         ...
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Class Methods
 
@@ -1042,6 +1119,8 @@ class Person:
         ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Instance Methods
 
 * Always use "self" as the first argument
@@ -1053,6 +1132,8 @@ class Person:
     def talk(self, message: str) -> None:
         pass
 ```
+
+[Back to Top](#table-of-contents)
 
 ## Documentation
 
@@ -1085,6 +1166,8 @@ def main():
     ...
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Multiple Line Comments
 
 * Avoid to use multiple line comments. Use multiple [inline comments](#inline-comments) if it is possible, or, use docstrings to document modules, classes, functions and methods
@@ -1102,6 +1185,8 @@ def main():
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi feugiat nisi non quam facilisis vehicula. In hac habitasse platea dictumst. Cras maximus dolor et nunc consectetur, sed commodo nisi blandit.
 """
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Section Comments
 
@@ -1152,6 +1237,8 @@ class Person:
     def __init__(self):
         ...
 ```
+
+[Back to Top](#table-of-contents)
 
 ### Docstrings
 
@@ -1210,6 +1297,8 @@ def function() -> None:  # Blank line between the resource and the docstring
     """
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Docstring Template
 
 * Remove the content that will not be used
@@ -1261,6 +1350,8 @@ Tests:
 """
 ```
 
+[Back to Top](#table-of-contents)
+
 ### Comment Snippets
 
 If you are using [VSCode](https://code.visualstudio.com/) as the IDE for the development, you can use some snippets to facilitate the generation of docstrings and section comments. 
@@ -1309,3 +1400,5 @@ To create a snippet, just create a file with the name `python.code-snippets.json
     }
 }
 ```
+
+[Back to Top](#table-of-contents)
