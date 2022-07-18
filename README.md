@@ -389,12 +389,12 @@ messages = {
 **✅ Do**
 ```python
 exit()
-
+EOF
 ```
 
 **❌ Don't**
 ```python
-exit()
+exit() EOF
 ```
 
 ## Code Naming Conventions
